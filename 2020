@@ -1,1 +1,85 @@
-tails/8147887?l=zh-cn
+/var/test -> /var/www/test
+创建 ln –s  /var/www/test   /var/test
+修改 ln –snf  /var/www/test1   /var/test
+占用 lsof -i :8080
+文件传输 scp -r localhost/home root@ip:/home
+环境变量：cdfapp vcpu数： cat /proc/$$/environ | tr '\000' '\n' | grep "cdfapp_limit_cpu"   | set | unset |
+echo $HOSTTYPE
+env |grep cdfapp_limit_cpu
+定时任务 crontab -l
+查找 grep "work_thread_num" * -nR 
+
+查看登录 last
+查看用户 id user
+ssh服务异常检查 sshd -t
+sudo权限 sudo cat /etc/sudoers
+共享内存 ipcs -a
+
+vim ~/.bashrc
+source ~/.bashrc
+查看系统版本 cat /etc/issue  |   uname -a   |  cat /proc/version
+抓包：tcpdump -i any  port 7000  -w snap.log  |  tcpdump -r snap.log
+
+service sshd status
+systemctl status sshd.service
+
+
+
+
+.tar 
+解包：tar xvf FileName.tar 
+打包：tar cvf FileName.tar DirName 
+.gz 
+解压1：gunzip FileName.gz 
+解压2：gzip -d FileName.gz 
+压缩：gzip FileName
+.zip 
+解压：unzip FileName.zip 
+压缩：zip FileName.zip DirName 
+.tar.gz 和 .tgz 
+解压：tar zxvf FileName.tar.gz 
+压缩：tar zcvf FileName.tar.gz DirName 
+tar -tf ServicePlatform.tar.gz |grep 'mysql-connector-java-5.1.44'
+zip -sf ServicePlatform.tar.gz |grep 'mysql-connector-java-5.1.44'
+
+$$ ——Shell本身的PID（ProcessID，即脚本运行的当前进程ID号）
+$! ——Shell最后运行的后台Process的PID(后台运行的最后一个进程的进程ID号)
+$? ——最后运行的命令的结束代码（返回值）即执行上一个指令的返回值 (显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误)
+$- ——显示shell使用的当前选项，与set命令功能相同
+$* ——所有参数列表。如"$*"用「"」括起来的情况、以"$1 $2 … $n"的形式输出所有参数，此选项参数可超过9个。
+$@——所有参数列表。如"$@"用「"」括起来的情况、以"$1" "$2" … "$n" 的形式输出所有参数。$@ 跟$*类似，但是可以当作数组用
+$# ——添加到Shell的参数个数
+$0 ——Shell本身的文件名
+$1～$n ——添加到Shell的各参数值。$1是第1参数、$2是第2参数…。
+
+-eq //等于 equal
+-ne //不等于 not equal
+-gt //大于 great than
+-lt //小于 less than
+-ge //大于等于 great equal
+-le //小于等于 less equal
+
+增加lv：
+pvcreate /dev/vdc
+vgs
+vgextend vgguestos  /dev/vdc
+vgs
+lvextend -L +30G  /dev/mapper/vgguestos-lvpaas_gaussdb
+resize2fs /dev/mapper/vgguestos-lvpaas_gaussdb
+
+
+vim :      vim /etc/vimrc
+set nu     在每行前加入行号
+set hls      设置搜索高亮
+yw               复制一个单词
+y                  复制
+p                 粘贴
+u                 撤销
+ctrl + r         恢复
+
+w  光标跳到下个字的开头
+e   光标跳到下个字的字尾
+G              光标移动到最后一行
+gg            光标移动到首行
+
+
